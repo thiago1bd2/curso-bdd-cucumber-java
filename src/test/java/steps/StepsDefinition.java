@@ -49,9 +49,16 @@ public class StepsDefinition {
         System.out.println("Delivery date: " + date);
     }
 
-    @When("delivery delays {int} days")
-    public void deliveryDelaysDays(int numberOfDays) {
-        date = date.plusDays(numberOfDays);
+    @When("delivery delays {int} {string}")
+    public void deliveryDelaysIn(int amount, String dateUnit) {
+        switch (dateUnit) {
+            case "days":
+                date = date.plusDays(amount);
+                break;
+            case "months":
+                date = date.plusMonths(amount);
+                break;
+        }
         System.out.println("New Delivery date: " + date);
     }
 

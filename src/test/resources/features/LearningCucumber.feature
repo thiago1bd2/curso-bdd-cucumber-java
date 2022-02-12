@@ -15,5 +15,10 @@ Feature: Learn Cucumber
 
   Scenario: will calculate the new delivery date
     Given delivery is for 05/04/2022
-    When delivery delays 2 days
+    When delivery delays 2 "days"
     Then delivery will be in 07/04/2022
+
+  Scenario: will calculate China's delivery delay
+    Given delivery is for 05/04/2022
+    When delivery delays 2 "months"
+    Then delivery will be in 05/06/2022
