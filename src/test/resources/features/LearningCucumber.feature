@@ -11,7 +11,7 @@ Feature: Learn Cucumber
   Scenario: Increment count value
     Given count value is 15
     When we increment count value in 5
-    Then count value will be 18
+    Then count value will be 20
 
   Scenario: will calculate the new delivery date
     Given delivery is for 05/04/2022
