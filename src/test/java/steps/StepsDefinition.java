@@ -43,9 +43,9 @@ public class StepsDefinition {
 
     private LocalDate date;
 
-    @Given("delivery is for {int}-{int}-{int}")
-    public void deliveryIsFor(int day, int month, int year) {
-        date = LocalDate.of(year, month, day);
+    @Given("delivery is for {localdate}")
+    public void deliveryIsFor(LocalDate deliveryDate) {
+        date = deliveryDate;
         System.out.println("Delivery date: " + date);
     }
 
@@ -62,11 +62,8 @@ public class StepsDefinition {
         System.out.println("New Delivery date: " + date);
     }
 
-    @Then("delivery will be in {int}-{int}-{int}")
-    public void deliveryWillBeIn(int day, int month, int year) {
-        LocalDate newDeliveryDate = LocalDate.of(year, month, day);
-        System.out.println("=========");
-        System.out.println("Comparison: " + date + " | " + newDeliveryDate);
+    @Then("delivery will be in {localdate}")
+    public void deliveryWillBeIn(LocalDate newDeliveryDate) {
         assertEquals(date, newDeliveryDate);
     }
 
