@@ -43,7 +43,7 @@ public class StepsDefinition {
 
     private LocalDate date;
 
-    @Given("delivery is for {int}\\/{int}\\/{int}")
+    @Given("delivery is for {int}-{int}-{int}")
     public void deliveryIsFor(int day, int month, int year) {
         date = LocalDate.of(year, month, day);
         System.out.println("Delivery date: " + date);
@@ -62,11 +62,35 @@ public class StepsDefinition {
         System.out.println("New Delivery date: " + date);
     }
 
-    @Then("delivery will be in {int}\\/{int}\\/{int}")
+    @Then("delivery will be in {int}-{int}-{int}")
     public void deliveryWillBeIn(int day, int month, int year) {
         LocalDate newDeliveryDate = LocalDate.of(year, month, day);
         System.out.println("=========");
         System.out.println("Comparison: " + date + " | " + newDeliveryDate);
         assertEquals(date, newDeliveryDate);
+    }
+
+    @Given("(especial )ticket number is A{}")
+    public void ticketNumberIs(String string) {
+    }
+
+    @Given("the ticket value is R$ {double}")
+    public void theTicketValueIs(Double value) {
+    }
+
+    @Given("passenger name is {string}")
+    public void passengerNameIs(String string) {
+    }
+
+    @Given("^passenger phone number is (9\\d{3}-\\d{4})$")
+    public void passengerPhoneNumberIs(String phoneNumber) {
+    }
+
+    @When("create steps")
+    public void createSteps() {
+    }
+
+    @Then("test gonna work")
+    public void testGonnaWork() {
     }
 }
