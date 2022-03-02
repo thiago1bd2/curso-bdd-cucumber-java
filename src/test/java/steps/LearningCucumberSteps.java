@@ -3,14 +3,12 @@ package steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import static org.junit.Assert.*;
 
-public class StepsDefinition {
+public class LearningCucumberSteps {
 
     private int count = 0;
 

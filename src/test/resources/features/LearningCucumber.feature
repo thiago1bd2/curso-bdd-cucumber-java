@@ -25,24 +25,24 @@ Feature: Learn Cucumber
 
   Scenario: must create generict step for the given ones
     Given ticket number is AF345
-    Given the ticket value is R$ 230,45
-    Given passenger name is "Fulano de Tal"
-    Given passenger phone number is 9999-9999
+    And the ticket value is R$ 230,45
+    And passenger name is "Fulano de Tal"
+    And passenger phone number is 9999-9999
     When create steps
     Then test gonna work
 
   Scenario: must deny the previous steps
     Given ticket number is AB167
-    Given especial ticket number is AB167
-    Given the ticket value is R$ 1120,23
-    Given passenger name is "Cicrano de Oliveira"
-    Given passenger phone number is 9888-8888
+    And especial ticket number is AB167
+    And the ticket value is R$ 1120,23
+    And passenger name is "Cicrano de Oliveira"
+    And passenger phone number is 9888-8888
 
   Scenario: must deny the previous steps
     Given ticket number is CD123
-    Given ticket number is AG1234
-    Given the ticket value is R$ 11345,56
-    Given passenger name is "Beltrano Souza Matos de Alcântara Azevedo"
-    Given passenger phone number is 1234-5678
-    Given passenger phone number is 999-2223
+    And ticket number is AG1234
+    And the ticket value is R$ 11345,56
+    And passenger name is "Beltrano Souza Matos de Alcântara Azevedo"
+    And passenger phone number is 1234-5678
+    And passenger phone number is 999-2223
 

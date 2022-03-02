@@ -2,14 +2,16 @@ package entities;
 
 import java.time.LocalDate;
 
-public class RentBill {
+public class RentalBill {
 
     private double billTotalPrice;
     private LocalDate returnDate;
     private RentalCategory rentalCategory;
+    private int points;
 
-    public RentBill(){
+    public RentalBill(){
         rentalCategory = RentalCategory.STANDARD;
+        points = 0;
     }
 
     public double getBillTotalPrice() {
@@ -34,5 +36,13 @@ public class RentBill {
 
     public RentalCategory getRentalCategory() {
         return rentalCategory;
+    }
+
+    public void addPoints(int calculatePoints) {
+        this.points += calculatePoints;
+    }
+
+    public int getPoints(){
+        return points;
     }
 }

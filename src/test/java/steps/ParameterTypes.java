@@ -1,5 +1,6 @@
 package steps;
 
+import entities.RentalCategory;
 import io.cucumber.java.ParameterType;
 
 import java.time.LocalDate;
@@ -12,6 +13,16 @@ public class ParameterTypes {
         try {
             return LocalDate.parse(date, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @ParameterType("[a-z,A-Z,0-9]+")
+    public RentalCategory category(String category) {
+        try {
+            return RentalCategory.getRentalCategory(category);
+        } catch (IllegalArgumentException e) {
             e.printStackTrace();
             return null;
         }
