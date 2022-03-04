@@ -3,26 +3,31 @@ Feature: Learn Cucumber
   I want to learn Cucumber
   So I will be able to automatize acceptance criteria
 
+  @Done
   Scenario: Must execute the spec
     Given a file is correctly created
     When it is ran
     Then the spec must finish with success
 
+  @Done
   Scenario: Increment count value
     Given count value is 15
     When we increment count value in 5
     Then count value will be 20
 
+  @Done
   Scenario: will calculate the new delivery date
     Given delivery is for 05/04/2022
     When delivery delays 2 "days"
     Then delivery will be in 07/04/2022
 
+  @Done
   Scenario: will calculate China's delivery delay
     Given delivery is for 05/04/2022
     When delivery delays 2 "months"
     Then delivery will be in 05/06/2022
 
+  @Done
   Scenario: must create generict step for the given ones
     Given ticket number is AF345
     And the ticket value is R$ 230,45
@@ -31,6 +36,7 @@ Feature: Learn Cucumber
     When create steps
     Then test gonna work
 
+  @Done
   Scenario: must deny the previous steps
     Given ticket number is AB167
     And especial ticket number is AB167
@@ -38,6 +44,7 @@ Feature: Learn Cucumber
     And passenger name is "Cicrano de Oliveira"
     And passenger phone number is 9888-8888
 
+  @Blocked
   Scenario: must deny the previous steps
     Given ticket number is CD123
     And ticket number is AG1234
