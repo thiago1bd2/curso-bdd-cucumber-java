@@ -19,20 +19,9 @@ public class RentService {
     private RentalBill billing(Movie movie, RentalBill rentalBill) {
         if (rentalBill == null)
             rentalBill = new RentalBill();
-        rentalBill.setBillTotalPrice(calculateTotalBill(movie.getRentalPrice(), rentalBill.getRentalCategory()));
+        rentalBill.setBillTotalPrice(movie.getRentalPrice() * rentalBill.getRentalCategory().getMultiplier());
         rentalBill.setReturnDate(LocalDate.now().plusDays(rentalBill.getRentalCategory().getDays()));
         rentalBill.addPoints(rentalBill.getRentalCategory().getGivenPoints());
         return rentalBill;
-    }
-
-    private double calculateTotalBill(double rentalPrice, RentalCategory rentalCategory) {
-        switch (rentalCategory) {
-            case STANDARD:
-                return rentalPrice;
-            case EXTENDED:
-                return rentalPrice * 2;
-            default:
-                return 0;
-        }
     }
 }

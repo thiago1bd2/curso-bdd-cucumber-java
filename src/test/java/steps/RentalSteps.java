@@ -9,6 +9,7 @@ import io.cucumber.java.en.When;
 import service.RentService;
 
 import java.time.LocalDate;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -80,5 +81,11 @@ public class RentalSteps {
         assertTrue(int1 == rentalBill.getPoints());
     }
 
-
+    @Given("a movie")
+    public void aMovie(io.cucumber.datatable.DataTable dataTable) {
+        Map<String, String> map = dataTable.asMap(String.class, String.class);
+        aMovieHasAStockOfUnities(Integer.parseInt(map.get("stock")));
+        theRentalPriceIs(Double.parseDouble(map.get("price")));
+        theRentalCategoryWillBeExtended(RentalCategory.getRentalCategory(map.get("category")));
+    }
 }

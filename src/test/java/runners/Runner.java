@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/features/"},
         tags = "@Rental and @Done",
         glue = "steps",
-        plugin = "pretty",
+        plugin = {"pretty","html:target/reports/report-html.html"},
         monochrome = true
 )
 public class Runner {
