@@ -1,5 +1,7 @@
 package steps;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -54,9 +56,9 @@ public class SeuBarrigaSteps {
         driver.findElement(By.xpath("//button")).click();
     }
 
-    @Then("the account is saved successfully")
-    public void theAccountIsSavedSuccessfully() {
-        String expectedMessage = "Conta adicionada com sucesso!";
+    @Then("the account is saved successfully with message {string}")
+    public void theAccountIsSavedSuccessfully(String message) {
+        String expectedMessage = message;
         String actualMessage = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
         Assert.assertEquals(expectedMessage, actualMessage);
     }
@@ -66,5 +68,10 @@ public class SeuBarrigaSteps {
         String expectedMessage = string;
         String actualMessage = driver.findElement(By.xpath("//div[@class='alert alert-danger']")).getText();
         Assert.assertEquals(expectedMessage, actualMessage);
+    }
+
+    @After
+    public void closeDriver() {
+        driver.quit();
     }
 }
